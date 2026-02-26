@@ -11,7 +11,6 @@ interface CardProps {
 export const Card = ({ cardId, columnId }: CardProps) => {
   const card = useKanbanStore((s) => s.cards[cardId]);
   const deleteCard = useKanbanStore((s) => s.deleteCard);
-  const moveCard = useKanbanStore((s) => s.moveCard);
 
   const {
     attributes,
@@ -34,7 +33,6 @@ export const Card = ({ cardId, columnId }: CardProps) => {
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(card.title);
 
-  const updateTitle = useKanbanStore((s) => s.cards);
 
   return (
     <div

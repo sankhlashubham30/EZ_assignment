@@ -16,7 +16,6 @@ interface ColumnProps {
 
 const Column = ({ columnId }: ColumnProps) => {
   const column = useKanbanStore((s) => s.columns[columnId]);
-  const cards = useKanbanStore((s) => s.cards);
   const addCard = useKanbanStore((s) => s.addCard);
 
   const { setNodeRef } = useDroppable({
@@ -40,6 +39,7 @@ const Column = ({ columnId }: ColumnProps) => {
           items={column.cardIds}
           strategy={verticalListSortingStrategy}
         >
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           {column.cardIds.map((cardId:any) => (
             <Card key={cardId} cardId={cardId} columnId={columnId} />
           ))}
